@@ -1,27 +1,45 @@
+import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CategoryList from './components/CategoryList';
 import TopicList from './components/TopicList';
 import MarkdownViewer from './components/MarkdownViewer';
+import Navbar from './components/Navbar';
 
 const App = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  const handleDarkToggle = () => {
+    setIsDark(!isDark);
+  };
+
   return (
-    <Router>
-      <div className='absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'></div>
-      <Routes>
-        <Route
-          path='/'
-          element={<CategoryList />}
-        />
-        <Route
-          path='/:category'
-          element={<TopicList />}
-        />
-        <Route
-          path='/:category/:topic'
-          element={<MarkdownViewer />}
-        />
-      </Routes>
-    </Router>
+    <div className={`${isDark ? 'dark' : ''}`}>
+      {isDark ? (
+        <div className='fixed -z-20 h-full w-full bg-slate-950'>
+          <div className='absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]'></div>
+        </div>
+      ) : (
+        <div className='relative z-[-2] w-screen bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]'></div>
+      )}
+      <Router>
+        <Navbar handleDarkToggle={handleDarkToggle} />
+
+        <Routes>
+          <Route
+            path='/'
+            element={<CategoryList />}
+          />
+          <Route
+            path='/:category'
+            element={<TopicList />}
+          />
+          <Route
+            path='/:category/:topic'
+            element={<MarkdownViewer />}
+          />
+        </Routes>
+      </Router>
+    </div>
   );
 };
 
