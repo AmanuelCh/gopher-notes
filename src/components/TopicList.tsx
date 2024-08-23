@@ -30,9 +30,18 @@ const topics = {
     'compiled-vs-interpreted',
     'go-memory-usage',
     'go-is-strongly-typed',
+    'wrapping-up',
   ],
-  setting_up_environment: ['installing-go-tools', 'packages', 'modules'],
-  variables: ['basic-types', 'variable-types', 'constants'],
+  setting_up_environment: [
+    'installing-go-tools',
+    'packages',
+    'modules',
+    'your-first-go-program',
+    'go-tooling',
+    'choose-your-tools',
+    'wrapping-up',
+  ],
+  variables: ['basic-types', 'type-inference', 'type-sizes', 'constants'],
 };
 
 export default TopicList;
