@@ -10,7 +10,7 @@ const TopicList = () => {
       {/* <Navbar /> */}
 
       <h1 className='z-50'>{category}</h1>
-      <ul>
+      <ul className='list-none'>
         {topicList.map((topic) => (
           <li key={topic}>
             <Link to={`/${category}/${topic}`}>
@@ -41,7 +41,15 @@ const topics = {
     'choose-your-tools',
     'wrapping-up',
   ],
-  variables: ['basic-types', 'type-inference', 'type-sizes', 'constants'],
+  variables_and_types: [
+    'basic-types',
+    'type-inference',
+    'type-sizes',
+    'constants',
+    'formatting-strings',
+    'conditionals',
+    'wrapping-up',
+  ],
 };
 
 export default TopicList;

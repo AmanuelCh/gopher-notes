@@ -47,7 +47,6 @@ ol,
 ul,
 li {
   margin: 20px 0;
-  list-style: inside;
 }
 img {
   margin: 30px 0;
@@ -59,6 +58,9 @@ blockquote {
 
 .links {
   text-decoration: underline;
+}
+.markdown-file ul {
+  list-style: inside;
 }
 
 .switch {

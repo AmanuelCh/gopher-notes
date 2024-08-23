@@ -26,7 +26,7 @@ const MarkdownViewer = () => {
   return (
     <div className='min-h-[100vh]'>
       <div className='container mx-auto py-1 leading-relaxed px-4 pb-12 dark:text-neutral-300'>
-        <div className='max-w-3xl mx-auto mt-12'>
+        <div className='max-w-3xl mx-auto mt-12 markdown-file'>
           <ReactMarkdown
             remarkPlugins={[[remarkGfm]]}
             components={{

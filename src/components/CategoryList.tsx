@@ -24,10 +24,10 @@ export const categories = [
     link: '/setting-up-environment',
   },
   {
-    title: 'Variables',
+    title: 'Variables and Types',
     description:
       'A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.',
-    link: '/variables',
+    link: '/variables-and-types',
   },
   {
     title: 'Functions',
