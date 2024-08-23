@@ -50,6 +50,15 @@ const topics = {
     'conditionals',
     'wrapping-up',
   ],
+  functions: [
+    'intro',
+    'declaration-syntax',
+    'return-values',
+    'named-returns',
+    'benefits-of-named-returns',
+    'early-returns',
+    'wrapping-up',
+  ],
 };
 
 export default TopicList;
