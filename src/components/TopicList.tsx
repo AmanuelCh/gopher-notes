@@ -59,6 +59,14 @@ const topics = {
     'early-returns',
     'wrapping-up',
   ],
+  structs: [
+    'structs-in-go',
+    'nested-structs',
+    'anonymous-structs',
+    'embedded-structs',
+    'struct-methods',
+    'wrapping-up',
+  ],
 };
 
 export default TopicList;
