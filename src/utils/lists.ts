@@ -155,4 +155,21 @@ export const topics = {
     'the-errors-package',
     'wrapping-up',
   ],
+  loops: [
+    'intro',
+    'omitting-conditions',
+    'while-loop',
+    'operators',
+    'continue-and-break',
+    'wrapping-up',
+  ],
+  slices: [
+    'arrays',
+    'slices-in-go',
+    'slices-review',
+    'make-function',
+    'len-and-cap-review',
+    'variadic-functions',
+    'slice-gotcha',
+  ],
 };
