@@ -148,4 +148,11 @@ export const topics = {
     'clean-interfaces',
     'wrapping-up',
   ],
+  errors: [
+    'the-error-interface',
+    'formatting-strings',
+    'custom-errors',
+    'the-errors-package',
+    'wrapping-up',
+  ],
 };
