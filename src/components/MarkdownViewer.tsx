@@ -65,7 +65,7 @@ const MarkdownViewer = () => {
           <div className='flex items-end justify-end w-full'>
             {!isLoading ? (
               <GitHubButton
-                to={`https://github.com/AmanuelCh/gopher-notes/src/data/${category}/${topic}`}
+                to={`https://github.com/AmanuelCh/gopher-notes/src/data/${category}/${topic}.md`}
               />
             ) : null}
           </div>

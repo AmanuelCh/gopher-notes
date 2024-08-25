@@ -2,91 +2,77 @@ export const categories = [
   {
     title: 'Intro',
     description:
-      'A technology company that builds economic infrastructure for the internet.',
+      'A beginner-friendly introduction to the Go programming language.',
     link: '/intro',
   },
   {
     title: 'Setting Up Environment',
-    description:
-      'A multinational technology company that specializes in Internet-related services and products.',
+    description: 'Learn how to get your Go development environment ready.',
     link: '/setting-up-environment',
   },
   {
     title: 'Variables and Types',
-    description:
-      'A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.',
+    description: "Understand Go's data types and how to declare variables.",
     link: '/variables-and-types',
   },
   {
     title: 'Functions',
-    description:
-      'A multinational technology company that specializes in Internet-related services and products.',
+    description: 'Define reusable blocks of code in Go',
     link: '/functions',
   },
   {
     title: 'Structs',
-    description:
-      'A technology company that builds economic infrastructure for the internet.',
+    description: 'Create custom data structures in Go.',
     link: '/structs',
   },
   {
     title: 'Interfaces',
-    description:
-      'A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.',
+    description: 'Define contracts for behavior, promoting code flexibility.',
     link: '/interfaces',
   },
   {
     title: 'Errors',
-    description:
-      'A multinational technology company that specializes in Internet-related services and products.',
+    description: 'Handle errors gracefully in Go.',
     link: '/errors',
   },
   {
     title: 'Loops',
-    description:
-      'A technology company that builds economic infrastructure for the internet.',
+    description: 'Iterate over sequences of data in Go.',
     link: '/loops',
   },
   {
     title: 'Slices',
-    description:
-      'A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.',
+    description: 'Dynamic arrays in Go.',
     link: '/slices',
   },
   {
     title: 'Maps',
-    description:
-      'A multinational technology company that specializes in Internet-related services and products.',
+    description: 'Key-value pairs for efficient data storage.',
     link: '/maps',
   },
   {
     title: 'Advanced Functions',
-    description:
-      'A multinational technology company that specializes in Internet-related services and products.',
+    description: "Explore Go's more complex function features.",
     link: '/advanced-functions',
   },
   {
     title: 'Channels',
-    description:
-      'A multinational technology company that specializes in Internet-related services and products.',
+    description: 'Communicate between goroutines safely and concurrently.',
     link: '/channels',
   },
   {
     title: 'Mutexes',
-    description:
-      'A multinational technology company that specializes in Internet-related services and products.',
+    description: ' Protect shared data from race conditions.',
     link: '/mutexes',
   },
   {
     title: 'Generics',
-    description:
-      'A multinational technology company that specializes in Internet-related services and products.',
+    description: 'Write reusable and type-safe code with generics in Go.',
     link: '/generics',
   },
   {
     title: 'Go Facts',
-    description:
-      'A multinational technology company that specializes in Internet-related services and products.',
+    description: 'Additional concepts and Go proverbs',
     link: '/go-facts',
   },
 ];
