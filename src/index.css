@@ -54,7 +54,7 @@ img {
 }
 blockquote {
   padding: 20px;
-  margin: 20px;
+  margin: 15px;
 }
 code {
   /* margin-bottom: 20px; */
@@ -156,4 +156,13 @@ code {
 .bookmarkBtn:active {
   transform: scale(0.95);
   transition-duration: 0.3s;
+}
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
 }

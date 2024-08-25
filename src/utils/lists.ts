@@ -66,12 +66,6 @@ export const categories = [
     link: '/advanced-functions',
   },
   {
-    title: 'Pointers',
-    description:
-      'A multinational technology company that specializes in Internet-related services and products.',
-    link: '/pointers',
-  },
-  {
     title: 'Channels',
     description:
       'A multinational technology company that specializes in Internet-related services and products.',
@@ -171,5 +165,25 @@ export const topics = {
     'len-and-cap-review',
     'variadic-functions',
     'slice-gotcha',
+    'wrapping-up',
+  ],
+  maps: [
+    'maps-in-go',
+    'mutating-maps',
+    'key-types',
+    'nested-maps',
+    'maps-review',
+    'wrapping-up',
+  ],
+  advanced_functions: [
+    'higher-order-functions',
+    'why-higher-order-functions',
+    'currying',
+    'defer',
+    'closures',
+    'anonymous-functions',
+    'pointers-intro',
+    'pointer-receivers',
+    'wrapping-up',
   ],
 };
