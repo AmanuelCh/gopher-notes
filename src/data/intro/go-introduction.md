@@ -1,7 +1,5 @@
 # Introduction to Go (Golang)
 
-## What is Go?
-
 Go is a statically typed, compiled programming language designed by Google. It's all about simplicity and efficiency, making it super easy to write clean and maintainable code. Think of it as the cool kid on the block that combines the best features of C, C++, and Python, but with its own unique flair!
 
 ## Key Features of Go
