@@ -2,10 +2,11 @@ import { Link, useParams } from 'react-router-dom';
 import { PlaceholdersAndVanishInput } from './ui/input-component';
 
 type Props = {
+  isDark: boolean;
   handleDarkToggle: () => void;
 };
 
-const Navbar = ({ handleDarkToggle }: Props) => {
+const Navbar = ({ isDark, handleDarkToggle }: Props) => {
   const placeholders = [
     'Which Type to Use',
     'Function Declaration Syntax',
@@ -87,6 +88,7 @@ const Navbar = ({ handleDarkToggle }: Props) => {
             <label className='switch'>
               <input
                 type='checkbox'
+                checked={isDark}
                 onClick={handleDarkToggle}
               />
               <span className='slider'></span>

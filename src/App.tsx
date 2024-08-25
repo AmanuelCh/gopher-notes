@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useLocalStorage } from '@uidotdev/usehooks';
 import CategoryList from './components/CategoryList';
 import TopicList from './components/TopicList';
 import MarkdownViewer from './components/MarkdownViewer';
 import Navbar from './components/Navbar';
 
 const App = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useLocalStorage('isDark', false);
 
   const handleDarkToggle = () => {
     setIsDark(!isDark);
@@ -22,7 +23,10 @@ const App = () => {
         <div className='relative z-[-2] w-screen bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]'></div>
       )}
       <Router>
-        <Navbar handleDarkToggle={handleDarkToggle} />
+        <Navbar
+          isDark={isDark}
+          handleDarkToggle={handleDarkToggle}
+        />
 
         <Routes>
           <Route
