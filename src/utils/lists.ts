@@ -61,14 +61,9 @@ export const categories = [
     link: '/channels',
   },
   {
-    title: 'Mutexes',
+    title: 'Mutexes and Generics',
     description: ' Protect shared data from race conditions.',
-    link: '/mutexes',
-  },
-  {
-    title: 'Generics',
-    description: 'Write reusable and type-safe code with generics in Go.',
-    link: '/generics',
+    link: '/mutexes-and-generics',
   },
   {
     title: 'Go Facts',
@@ -181,4 +176,15 @@ export const topics = {
     'channels-review',
     'wrapping-up',
   ],
+  mutexes_and_generics: [
+    'mutexes-in-go',
+    'more-on-mutexes',
+    'rw-mutex',
+    'rw-mutex-review',
+    'generics-in-go',
+    'constraints',
+    'parametric-constraints',
+    'wrapping-up',
+  ],
+  go_facts: ['proverbs'],
 };
