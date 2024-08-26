@@ -172,4 +172,13 @@ export const topics = {
     'pointer-receivers',
     'wrapping-up',
   ],
+  channels: [
+    'concurrency',
+    'channels-in-go',
+    'closing-channels',
+    'select-statement',
+    'select-default-case',
+    'channels-review',
+    'wrapping-up',
+  ],
 };

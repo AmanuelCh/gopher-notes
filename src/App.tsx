@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import CategoryList from './components/CategoryList';
 import TopicList from './components/TopicList';
 import MarkdownViewer from './components/MarkdownViewer';
 import Navbar from './components/Navbar';
+import Error from './components/Error';
 
 const App = () => {
   const [isDark, setIsDark] = useLocalStorage('isDark', false);
@@ -40,6 +40,14 @@ const App = () => {
           <Route
             path='/:category/:topic'
             element={<MarkdownViewer />}
+          />
+          <Route
+            path='/error'
+            element={<Error />}
+          />
+          <Route
+            path='*'
+            element={<Error />}
           />
         </Routes>
       </Router>

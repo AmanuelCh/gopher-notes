@@ -2,18 +2,23 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import remarkGfm from 'remark-gfm';
 import CustomLink from './Link';
 import GitHubButton from './ui/github-button';
 import Breadcrumb from './ui/breadcrumb';
 import BackToTop from './ui/back-to-top';
+import checkRoute from '../utils/checkRoute';
 
 const MarkdownViewer = () => {
   const { category, topic } = useParams();
   const [markdown, setMarkdown] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
+
+  const navigate = useNavigate();
+
+  checkRoute();
 
   useEffect(() => {
     const fetchMarkdown = async () => {
@@ -22,6 +27,7 @@ const MarkdownViewer = () => {
         setMarkdown(module.default);
       } catch (error) {
         console.error('Error fetching markdown:', error);
+        navigate('/error');
       }
     };
 

@@ -1,9 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import { topics } from '../utils/lists';
 import Breadcrumb from './ui/breadcrumb';
+import checkRoute from '../utils/checkRoute';
 
 const TopicList = () => {
   const { category } = useParams<{ category: string }>();
+
+  checkRoute();
+
   const topicList =
     topics[category?.replaceAll('-', '_') as keyof typeof topics] || [];
 
@@ -14,7 +18,7 @@ const TopicList = () => {
         <Breadcrumb category={category} />
       </div>
 
-      <h1 className='my-6 z-50'>{category?.replaceAll('-', ' ')}</h1>
+      <h1 className='my-10 z-50'>{category?.replaceAll('-', ' ')}</h1>
       <ul className='grid md:grid-cols-3 gap-6 list-none'>
         {topicList.map((topic) => (
           <li
