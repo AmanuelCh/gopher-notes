@@ -25,10 +25,14 @@
   .IconContainer {
     @apply w-[25px] h-[25px] rounded-[50px] flex items-center justify-center overflow-hidden z-20 duration-300;
   }
+  .card {
+    @apply rounded-2xl p-4 dark:bg-slate-950 border border-transparent dark:border-white/[0.2] border-slate-700 relative z-20 capitalize;
+  }
 }
 
 body {
   font-family: Inter, sans-serif;
+  overflow-x: hidden !important;
 }
 
 h1 {
@@ -36,11 +40,13 @@ h1 {
   font-weight: bold;
   margin: 20px 0 0 0;
   line-height: 3rem;
+  text-transform: capitalize;
 }
 
 h2 {
   font-size: 1.6em;
   font-weight: bold;
+  text-transform: capitalize;
   /* margin: 20px 0; */
 }
 
@@ -156,6 +162,10 @@ code {
 .bookmarkBtn:active {
   transform: scale(0.95);
   transition-duration: 0.3s;
+}
+
+.back-btn::before {
+  content: 'Back to top';
 }
 
 @media (max-width: 375px) {

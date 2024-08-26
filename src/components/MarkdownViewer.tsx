@@ -6,11 +6,14 @@ import { useParams } from 'react-router-dom';
 import remarkGfm from 'remark-gfm';
 import CustomLink from './Link';
 import GitHubButton from './ui/github-button';
+import Breadcrumb from './ui/breadcrumb';
+import BackToTop from './ui/back-to-top';
 
 const MarkdownViewer = () => {
   const { category, topic } = useParams();
   const [markdown, setMarkdown] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const fetchMarkdown = async () => {
@@ -29,10 +32,33 @@ const MarkdownViewer = () => {
     setIsLoading(false);
   }, 1000);
 
+  const handleScroll = () => {
+    if (window.scrollY > 200) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className='min-h-[100vh]'>
-      <div className='container mx-auto py-1 leading-relaxed px-4 pb-12 dark:text-neutral-300'>
+      <div className='container mx-auto py-1 leading-relaxed px-4 pb-28 dark:text-neutral-300'>
         <div className='max-w-3xl mx-auto mt-12 markdown-file flex flex-col gap-8'>
+          <div>
+            <Breadcrumb
+              category={category}
+              topic={topic}
+            />
+          </div>
+
           <ReactMarkdown
             remarkPlugins={[[remarkGfm]]}
             components={{
@@ -65,11 +91,15 @@ const MarkdownViewer = () => {
           <div className='flex items-end justify-end w-full'>
             {!isLoading ? (
               <GitHubButton
-                to={`https://github.com/AmanuelCh/gopher-notes/src/data/${category}/${topic}.md`}
+                to={`https://github.com/AmanuelCh/gopher-notes/blob/main/src/data/${category}/${topic}.md`}
               />
             ) : null}
           </div>
         </div>
+      </div>
+
+      <div className='fixed bottom-8 right-4 lg:right-10'>
+        {isVisible ? <BackToTop /> : null}
       </div>
     </div>
   );
