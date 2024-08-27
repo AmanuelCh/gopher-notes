@@ -37,7 +37,8 @@ export const categories = [
   },
   {
     title: 'Loops',
-    description: 'Iterate over sequences of data in Go.',
+    description:
+      'Iterate over sequences of data in Go which is essential for repeating actions',
     link: '/loops',
   },
   {
@@ -67,7 +68,8 @@ export const categories = [
   },
   {
     title: 'Go Facts',
-    description: 'Additional concepts and Go proverbs',
+    description:
+      'Go proverbs from creators of Go language and additional concepts',
     link: '/go-facts',
   },
 ];

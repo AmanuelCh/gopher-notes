@@ -59,7 +59,7 @@ const MarkdownViewer = () => {
   return (
     <div className='min-h-[100vh]'>
       <SEO
-        title={`${capitalizeWords(topic)} | Gopher Notes`}
+        title={`${capitalizeWords(topic!)} | Gopher Notes`}
         description={`${topic} | Dive deep to ${topic} in go.`}
         name='Amanuel Chaka'
         type='article'

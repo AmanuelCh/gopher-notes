@@ -22,7 +22,7 @@ const TopicList = () => {
   return (
     <div className='container mx-auto py-1 leading-relaxed pb-12 dark:text-neutral-300 max-w-3xl mt-12 w-11/12'>
       <SEO
-        title={`${capitalizeWords(category)} | Gopher notes`}
+        title={`${capitalizeWords(category!)} | Gopher notes`}
         description={descSEO}
         name='Amanuel Chaka'
         type='article'
@@ -34,16 +34,15 @@ const TopicList = () => {
       </div>
 
       <h1 className='my-10 z-50'>{category?.replaceAll('-', ' ')}</h1>
-      <ul className='grid md:grid-cols-3 gap-6 list-none'>
+      <ul className='grid md:grid-cols-2 gap-6 list-none'>
         {topicList.map((topic) => (
-          <li
+          <Link
             className='card'
+            to={`/${category}/${topic}`}
             key={topic}
           >
-            <Link to={`/${category}/${topic}`}>
-              {topic.split('-').join(' ')}
-            </Link>
-          </li>
+            {topic.split('-').join(' ')}
+          </Link>
         ))}
       </ul>
     </div>
