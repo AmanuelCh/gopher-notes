@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useLocalStorage } from '@uidotdev/usehooks';
+import SEO from './components/SEO';
 import CategoryList from './components/CategoryList';
 import TopicList from './components/TopicList';
 import MarkdownViewer from './components/MarkdownViewer';
@@ -22,6 +23,12 @@ const App = () => {
       ) : (
         <div className='relative z-[-2] w-screen bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]'></div>
       )}
+      <SEO
+        title='Gopher Notes'
+        description='Gopher Notes: Learn, Code, and Build with Confidence'
+        name='Amanuel Chaka'
+        type='article'
+      />
       <Router>
         <Navbar
           isDark={isDark}

@@ -5,10 +5,12 @@ import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useNavigate, useParams } from 'react-router-dom';
 import remarkGfm from 'remark-gfm';
 import CustomLink from './Link';
+import SEO from './SEO';
 import GitHubButton from './ui/github-button';
 import Breadcrumb from './ui/breadcrumb';
 import BackToTop from './ui/back-to-top';
 import checkRoute from '../utils/checkRoute';
+import { capitalizeWords } from '../utils/capitalizedWord';
 
 const MarkdownViewer = () => {
   const { category, topic } = useParams();
@@ -56,6 +58,12 @@ const MarkdownViewer = () => {
 
   return (
     <div className='min-h-[100vh]'>
+      <SEO
+        title={`${capitalizeWords(topic)} | Gopher Notes`}
+        description={`${topic} | Dive deep to ${topic} in go.`}
+        name='Amanuel Chaka'
+        type='article'
+      />
       <div className='container mx-auto py-1 leading-relaxed px-4 pb-28 dark:text-neutral-300'>
         <div className='max-w-3xl mx-auto mt-12 markdown-file flex flex-col gap-8'>
           <div>
