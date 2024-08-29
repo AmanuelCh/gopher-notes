@@ -20,12 +20,15 @@ const MarkdownViewer = () => {
 
   const navigate = useNavigate();
 
+  // check if route is valid
   checkRoute();
 
   useEffect(() => {
+    // fetch markdown file from "data" directory based on the route path
     const fetchMarkdown = async () => {
       try {
         const module = await import(`../data/${category}/${topic}.md`);
+        // get raw content of the markdown file
         setMarkdown(module.default);
       } catch (error) {
         console.error('Error fetching markdown:', error);
@@ -40,6 +43,7 @@ const MarkdownViewer = () => {
     setIsLoading(false);
   }, 1000);
 
+  // show back-to-top btn
   const handleScroll = () => {
     if (window.scrollY > 200) {
       setIsVisible(true);
@@ -73,6 +77,7 @@ const MarkdownViewer = () => {
             />
           </div>
 
+          {/* render markdown with syntax highlighting */}
           <ReactMarkdown
             remarkPlugins={[[remarkGfm]]}
             components={{

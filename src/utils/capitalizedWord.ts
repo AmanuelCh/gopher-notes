@@ -1,3 +1,4 @@
+// removes unnecessary hyphens and capitalizes words
 export function capitalizeWords(str: string) {
   return str
     ?.replaceAll('-', ' ')

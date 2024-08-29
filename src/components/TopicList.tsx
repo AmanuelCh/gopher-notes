@@ -8,11 +8,14 @@ import { capitalizeWords } from '../utils/capitalizedWord';
 const TopicList = () => {
   const { category } = useParams<{ category: string }>();
 
+  // check if route is valid
   checkRoute();
 
+  // get topics for the selected category
   const topicList =
     topics[category?.replaceAll('-', '_') as keyof typeof topics] || [];
 
+  // create a metadata description for the category
   const descSEO = categories.filter((prevCategory) =>
     prevCategory.link.replace('/', '') === category
       ? prevCategory.description
