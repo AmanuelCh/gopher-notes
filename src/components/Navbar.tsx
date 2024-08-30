@@ -1,5 +1,7 @@
-import { Link, useParams } from 'react-router-dom';
+import { FormEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PlaceholdersAndVanishInput } from './ui/input-component';
+import { topics as topicsData } from '../utils/lists';
 
 type Props = {
   isDark: boolean;
@@ -7,22 +9,46 @@ type Props = {
 };
 
 const Navbar = ({ isDark, handleDarkToggle }: Props) => {
-  const placeholders = [
-    'Which Type to Use',
-    'Function Declaration Syntax',
-    'Named Returns',
-    'Nested Structs',
-    'Type Assertion',
-    'Formatting Strings',
-    'Pointers',
-  ];
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<
+    { category: string; topic: string }[]
+  >([]);
+  const [displayedResults, setDisplayedResults] = useState<
+    { category: string; topic: string }[]
+  >([]);
+  const [maximumSearchResult, setMaximumSearchResult] = useState(8);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+    setSearchTerm(e.target.value);
+    !searchTerm && setMaximumSearchResult(8);
+
+    const searchQuery = e.target.value.toLowerCase();
+
+    // Perform search
+    const filteredTopics: { category: string; topic: string }[] = [];
+
+    for (const category in topicsData) {
+      // @ts-expect-error
+      const topics = topicsData[category];
+      for (const topic of topics) {
+        if (topic.toLowerCase().includes(searchQuery)) {
+          filteredTopics.push({ category, topic });
+        }
+      }
+    }
+
+    setSearchResults(filteredTopics);
+    setDisplayedResults(filteredTopics.slice(0, maximumSearchResult)); // Limit results to specified max search result
   };
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onLinkClick = (e: FormEvent) => {
     e.preventDefault();
-    console.log('submitted');
+    setSearchTerm('');
+    setSearchResults([]);
+    setMaximumSearchResult(8);
+  };
+  const handleShowMore = () => {
+    setMaximumSearchResult(maximumSearchResult + 5);
+    setDisplayedResults(searchResults.slice(0, maximumSearchResult));
   };
 
   return (
@@ -54,7 +80,8 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
               <label className='switch'>
                 <input
                   type='checkbox'
-                  onClick={handleDarkToggle}
+                  checked={isDark}
+                  onChange={handleDarkToggle}
                 />
                 <span className='slider'></span>
               </label>
@@ -62,11 +89,48 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
           </div>
         </div>
 
-        <PlaceholdersAndVanishInput
-          placeholders={placeholders}
-          onChange={handleChange}
-          onSubmit={onSubmit}
-        />
+        <div className='w-full relative'>
+          <PlaceholdersAndVanishInput
+            placeholders={placeholders}
+            onChange={handleChange}
+            onSubmit={onLinkClick}
+          />
+          {searchTerm ? (
+            <div className='text-white absolute left-1/2 -translate-x-1/2 mt-3 py-5 px-8 tracking-wide leading-loose w-11/12 lg:w-[70%] rounded-md z-40 bg-zinc-800'>
+              {displayedResults.length > 0 ? (
+                <div>
+                  <ul>
+                    {displayedResults.map((result) => (
+                      <li
+                        key={`${result.category}-${result.topic}`}
+                        onClick={(e: FormEvent) => onLinkClick(e)}
+                      >
+                        <Link
+                          to={`/${result.category.replaceAll('_', '-')}/${
+                            result.topic
+                          }`}
+                        >
+                          <span>{result.category.replaceAll('_', '-')}</span>/
+                          <span>{result.topic.replaceAll('-', ' ')}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  {searchResults.length > 9 ? (
+                    <button
+                      className='mt-2 text-blue-400 underline'
+                      onClick={handleShowMore}
+                    >
+                      Show more
+                    </button>
+                  ) : null}
+                </div>
+              ) : (
+                <p>No matching topics found.</p>
+              )}
+            </div>
+          ) : null}
+        </div>
 
         <div className='gap-8 hidden md:flex'>
           <div>
@@ -89,7 +153,7 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
               <input
                 type='checkbox'
                 checked={isDark}
-                onClick={handleDarkToggle}
+                onChange={handleDarkToggle}
               />
               <span className='slider'></span>
             </label>
@@ -99,5 +163,15 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
     </div>
   );
 };
+
+export const placeholders = [
+  'Which Type to Use',
+  'Function Declaration Syntax',
+  'Nested Structs',
+  'Type Assertion',
+  'Formatting Strings',
+  'Pointers',
+  'Mutexes',
+];
 
 export default Navbar;
