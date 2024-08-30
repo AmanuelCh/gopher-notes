@@ -1,79 +1,3 @@
-export const categories = [
-  {
-    title: 'Intro',
-    description:
-      'A beginner-friendly introduction to the Go programming language.',
-    link: '/intro',
-  },
-  {
-    title: 'Setting Up Environment',
-    description: 'Learn how to get your Go development environment ready.',
-    link: '/setting-up-environment',
-  },
-  {
-    title: 'Variables and Types',
-    description: "Understand Go's data types and how to declare variables.",
-    link: '/variables-and-types',
-  },
-  {
-    title: 'Functions',
-    description: 'Define reusable blocks of code in Go',
-    link: '/functions',
-  },
-  {
-    title: 'Structs',
-    description: 'Create custom data structures in Go.',
-    link: '/structs',
-  },
-  {
-    title: 'Interfaces',
-    description: 'Define contracts for behavior, promoting code flexibility.',
-    link: '/interfaces',
-  },
-  {
-    title: 'Errors',
-    description: 'Handle errors gracefully in Go.',
-    link: '/errors',
-  },
-  {
-    title: 'Loops',
-    description:
-      'Iterate over sequences of data in Go which is essential for repeating actions',
-    link: '/loops',
-  },
-  {
-    title: 'Slices',
-    description: 'Dynamic arrays in Go.',
-    link: '/slices',
-  },
-  {
-    title: 'Maps',
-    description: 'Key-value pairs for efficient data storage.',
-    link: '/maps',
-  },
-  {
-    title: 'Advanced Functions',
-    description: "Explore Go's more complex function features.",
-    link: '/advanced-functions',
-  },
-  {
-    title: 'Channels',
-    description: 'Communicate between goroutines safely and concurrently.',
-    link: '/channels',
-  },
-  {
-    title: 'Mutexes and Generics',
-    description: ' Protect shared data from race conditions.',
-    link: '/mutexes-and-generics',
-  },
-  {
-    title: 'Go Facts',
-    description:
-      'Go proverbs from creators of Go language and additional concepts',
-    link: '/go-facts',
-  },
-];
-
 export const topics = {
   intro: [
     'go-introduction',
@@ -81,6 +5,7 @@ export const topics = {
     'compiled-vs-interpreted',
     'go-memory-usage',
     'go-is-strongly-typed',
+    'requirements',
     'wrapping-up',
   ],
   setting_up_environment: [
@@ -190,3 +115,82 @@ export const topics = {
   ],
   go_facts: ['proverbs'],
 };
+
+export const categories = [
+  {
+    title: 'Intro',
+    description:
+      'A beginner-friendly introduction to the Go programming language.',
+    link: '/intro',
+    tags: topics.intro,
+  },
+  {
+    title: 'Setting Up Environment',
+    description: 'Learn how to get your Go development environment ready.',
+    link: '/setting-up-environment',
+    tags: topics.setting_up_environment,
+  },
+  {
+    title: 'Variables and Types',
+    description: "Understand Go's data types and how to declare variables.",
+    link: '/variables-and-types',
+    tags: topics.variables_and_types,
+  },
+  {
+    title: 'Functions',
+    description: 'Define reusable blocks of code in Go',
+    link: '/functions',
+  },
+  {
+    title: 'Structs',
+    description: 'Create custom data structures in Go.',
+    link: '/structs',
+  },
+  {
+    title: 'Interfaces',
+    description: 'Define contracts for behavior, promoting code flexibility.',
+    link: '/interfaces',
+  },
+  {
+    title: 'Errors',
+    description: 'Handle errors gracefully in Go.',
+    link: '/errors',
+  },
+  {
+    title: 'Loops',
+    description:
+      'Iterate over sequences of data in Go which is essential for repeating actions',
+    link: '/loops',
+  },
+  {
+    title: 'Slices',
+    description: 'Dynamic arrays in Go.',
+    link: '/slices',
+  },
+  {
+    title: 'Maps',
+    description: 'Key-value pairs for efficient data storage.',
+    link: '/maps',
+  },
+  {
+    title: 'Advanced Functions',
+    description: "Explore Go's more complex function features.",
+    link: '/advanced-functions',
+  },
+  {
+    title: 'Channels',
+    description: 'Communicate between goroutines safely and concurrently.',
+    link: '/channels',
+  },
+  {
+    title: 'Mutexes and Generics',
+    description: ' Protect shared data from race conditions.',
+    link: '/mutexes-and-generics',
+  },
+  {
+    title: 'Go Facts',
+    description:
+      'Go proverbs from creators of Go language and additional concepts',
+    link: '/go-facts',
+  },
+];

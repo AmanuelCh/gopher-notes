@@ -7,16 +7,29 @@ import remarkGfm from 'remark-gfm';
 import CustomLink from './Link';
 import SEO from './SEO';
 import GitHubButton from './ui/github-button';
+import BookmarkButton from './ui/bookmark-button';
 import Breadcrumb from './ui/breadcrumb';
 import BackToTop from './ui/back-to-top';
 import checkRoute from '../utils/checkRoute';
 import { capitalizeWords } from '../utils/capitalizedWord';
 
-const MarkdownViewer = () => {
+type Props = {
+  bookmarkedTopics: { link: string }[];
+  setBookmarkedTopics: React.Dispatch<
+    React.SetStateAction<
+      {
+        link: string;
+      }[]
+    >
+  >;
+};
+
+const MarkdownViewer = ({ bookmarkedTopics, setBookmarkedTopics }: Props) => {
   const { category, topic } = useParams();
   const [markdown, setMarkdown] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
+  const [bookmarkExists, setBookmarkExists] = useState(false);
 
   const navigate = useNavigate();
 
@@ -59,6 +72,35 @@ const MarkdownViewer = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // create a link to store in bookmark and check if it's bookmarked already
+  const link = `/${category}/${topic}`;
+  useEffect(() => {
+    setBookmarkExists(
+      bookmarkedTopics.some((bookmark) => bookmark.link === link)
+    );
+  }, [link]);
+
+  // handle bookmarking items
+  const handleBookmark = () => {
+    // if bookmark exists, remove it
+    if (bookmarkExists) {
+      setBookmarkedTopics((bookmarkTopics) =>
+        bookmarkTopics.filter((bookmark) => bookmark.link !== link)
+      );
+      setBookmarkExists(false);
+      return;
+    }
+
+    const bookmarkTopic = { link };
+
+    // add new bookmark
+    setBookmarkedTopics((bookmarkedTopics) => [
+      bookmarkTopic,
+      ...bookmarkedTopics,
+    ]);
+    setBookmarkExists(true);
+  };
 
   return (
     <div className='min-h-[100vh]'>
@@ -109,9 +151,17 @@ const MarkdownViewer = () => {
 
           <div className='flex items-end justify-end w-full'>
             {!isLoading ? (
-              <GitHubButton
-                to={`https://github.com/AmanuelCh/gopher-notes/blob/main/src/data/${category}/${topic}.md`}
-              />
+              <div className='flex gap-6'>
+                <BookmarkButton
+                  text={`${
+                    bookmarkExists ? 'Remove bookmark' : 'Bookmark topic'
+                  }`}
+                  onBookmark={handleBookmark}
+                />
+                <GitHubButton
+                  to={`https://github.com/AmanuelCh/gopher-notes/blob/main/src/data/${category}/${topic}.md`}
+                />
+              </div>
             ) : null}
           </div>
         </div>

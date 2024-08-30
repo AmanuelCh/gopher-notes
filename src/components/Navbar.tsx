@@ -63,7 +63,10 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
           </Link>
 
           <div className='flex items-center gap-8 md:hidden'>
-            <button className='bookmarkBtn'>
+            <Link
+              className='bookmarkBtn'
+              to='/bookmarks'
+            >
               <span className='IconContainer'>
                 <svg
                   viewBox='0 0 384 512'
@@ -74,7 +77,7 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
                 </svg>
               </span>
               <p className='text'>Saved</p>
-            </button>
+            </Link>
 
             <div className='md:hidden'>
               <label className='switch'>
@@ -134,7 +137,10 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
 
         <div className='gap-8 hidden md:flex'>
           <div>
-            <button className='bookmarkBtn'>
+            <Link
+              className='bookmarkBtn'
+              to='/bookmarks'
+            >
               <span className='IconContainer'>
                 <svg
                   viewBox='0 0 384 512'
@@ -145,7 +151,7 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
                 </svg>
               </span>
               <p className='text'>Saved</p>
-            </button>
+            </Link>
           </div>
 
           <div className='hidden md:block'>

@@ -5,7 +5,7 @@ type Props = {
 const GitHubButton = ({ to }: Props) => {
   return (
     <a
-      className='flex overflow-hidden items-center text-sm font-medium  bg-slate-800 text-white shadow px-4 py-3 whitespace-pre md:flex group relative w-max justify-center gap-2 rounded-md transition-all duration-300 ease-out   cursor-pointer hover:bg-slate-700'
+      className='btn group'
       href={to}
       target='_blank'
     >

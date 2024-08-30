@@ -5,10 +5,14 @@ import CategoryList from './components/CategoryList';
 import TopicList from './components/TopicList';
 import MarkdownViewer from './components/MarkdownViewer';
 import Navbar from './components/Navbar';
+import Bookmarks from './components/Bookmarks';
 import Error from './components/Error';
 
 const App = () => {
   const [isDark, setIsDark] = useLocalStorage('isDark', false);
+  const [bookmarkedTopics, setBookmarkedTopics] = useLocalStorage<
+    { link: string }[]
+  >('bookmarkedTopics', []);
 
   const handleDarkToggle = () => {
     setIsDark(!isDark);
@@ -46,7 +50,21 @@ const App = () => {
           />
           <Route
             path='/:category/:topic'
-            element={<MarkdownViewer />}
+            element={
+              <MarkdownViewer
+                bookmarkedTopics={bookmarkedTopics}
+                setBookmarkedTopics={setBookmarkedTopics}
+              />
+            }
+          />
+          <Route
+            path='/bookmarks'
+            element={
+              <Bookmarks
+                bookmarkedTopics={bookmarkedTopics}
+                setBookmarkedTopics={setBookmarkedTopics}
+              />
+            }
           />
           <Route
             path='/error'
