@@ -194,3 +194,53 @@ export const categories = [
     link: '/go-facts',
   },
 ];
+
+export const exercises = [
+  {
+    difficulty: 'Beginner',
+    exercises: [
+      'Create a program that prints "Hello, world!" to the console.',
+      'Write a program that performs simple arithmetic operations (addition, subtraction, multiplication, division, modulo) with two numbers.',
+      "Create a program that takes a user's name as input and prints a personalized greeting. Use string concatenation, length, and indexing to manipulate the string.",
+      "Write a program that asks the user for their age and prints a message based on their age: You're a child, You're an adult, or You're a senior citizen",
+      'Use a `for` loop to print the numbers from 1 to 10',
+      'Write a program that uses a `while` loop to keep asking the user for a number until they enter a negative number.',
+      'Write a function that calculates the factorial of a number using recursion.',
+      'Create a slice of strings and add, remove, and modify elements.',
+      'Use a `for` loop to iterate through an array or slice and print each element.',
+      "Write a program that searches for a specific element in a slice and prints its index if found, otherwise, print 'Element not found'",
+      'Write a program that checks if a given key exists in a map.',
+      'Define an interface and create structs that implement it.',
+    ],
+    message:
+      'These are beginner-level exercises to try out for you. Do the exercises (all of them if possible). If there is a topic that bothers you, google is your best friend! Plus, consider online coding exercise websites like Codewars.',
+  },
+  {
+    difficulty: 'Intermediate',
+    exercises: [
+      'Bank Account Management: Create a `BankAccount` struct with fields like `Name`, `Balance`, and `AccountNumber`. Implement methods like `Deposit`, `Withdraw`, and `GetBalance`. Write a program that simulates bank account operations.',
+      'Geometric Shapes: Create interfaces for `Shape` and `Resizable`. Define structs for `Circle`, `Square`, and `Rectangle` that implement these interfaces. Implement methods for calculating area and perimeter. Create a program that allows the user to create different shapes and perform operations on them.',
+      'Text File Analyzer: Read a text file from the command line. Calculate the number of words, lines, and characters in the file. Handle file opening errors gracefully.',
+      'CSV Data Parser: Parse a CSV file with data about products (name, price, quantity). Store the data in a slice of structs. Calculate the total cost of all products. Handle errors during CSV parsing.',
+      'Write a web scraper that retrieves data from a website using the `net/http` package. Use goroutines to parallelize the scraping process and improve performance.',
+    ],
+    message:
+      'These are small programs that solve real problems to solidify your skills. Feel free to extend on them and add features. ',
+  },
+  {
+    difficulty: 'Advanced',
+    exercises: [
+      'Distributed Key-Value Store: Implement a distributed key-value store using a consistent hashing algorithm (like Ketama) for data distribution across multiple nodes.  Design a protocol for communication between nodes.  Consider fault tolerance and handling node failures.',
+      'Real-time Data Processing Pipeline: Build a real-time data processing pipeline that consumes data from a source (e.g., Kafka) and performs transformations (filtering, aggregation, etc.). Utilize channels and goroutines for concurrent processing. Implement error handling and logging for resilience.',
+      'Microservice Architecture: Break down a complex application into smaller, independently deployable microservices. Choose a framework like `Gin`, `Echo`, or `Fiber` for creating RESTful APIs. Implement service discovery and communication using tools like Consul or Kubernetes.',
+      'GraphQL API: Create a GraphQL API using a framework like `graphql-go` or `uber/graphql`. Design a schema for your data and implement resolvers for querying and mutation operations. Ensure efficient query execution and data fetching.',
+      'Custom Data Structure: Design and implement a custom data structure, such as a skip list or a Trie. Benchmark its performance against standard Golang data structures for different use cases. Implement efficient search, insertion, and deletion operations.',
+      " Graph Algorithms: Implement classic graph algorithms like Dijkstra's shortest path, A* search, or Depth-First Search. Choose a suitable representation for graphs (adjacency list, adjacency matrix). Apply these algorithms to solve real-world problems like routing or network analysis.",
+      'Performance Optimization: Profile a Golang application using tools like `pprof` to identify performance bottlenecks. Optimize code for speed and memory efficiency. Consider using techniques like caching, parallelization, and data compression.',
+      'Memory Leak Detection: Implement strategies to detect and fix memory leaks in your applications. Use tools like `go test -race` for concurrency-related issues. Analyze memory usage patterns and implement memory-efficient data structures.',
+      'Embedded Systems and Go: Explore the use of Go for embedded systems development using the `go-on-arm` or `tinygo` toolchain. Write code for a simple embedded system with GPIO control and sensor interaction.',
+    ],
+    message:
+      'These exercises are pretty advanced, and attempt them after diving deep in Go. You can check them out later on your career or when you feel confident about your Go skills.',
+  },
+];

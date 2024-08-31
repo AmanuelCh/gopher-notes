@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Error = () => {
   return (
-    <div className='flex items-center justify-center h-[90vh] text-white'>
+    <div className='flex items-center justify-center h-[90vh] dark:text-white text-slate-800'>
       The requested page doesn't exist. Try searching for topics or navigate
       back to{' '}
       <Link
