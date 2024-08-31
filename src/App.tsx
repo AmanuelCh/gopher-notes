@@ -6,6 +6,8 @@ import TopicList from './components/TopicList';
 import MarkdownViewer from './components/MarkdownViewer';
 import Navbar from './components/Navbar';
 import Bookmarks from './components/Bookmarks';
+import Exercises from './components/Exercises';
+import About from './components/About';
 import Error from './components/Error';
 
 const App = () => {
@@ -65,6 +67,14 @@ const App = () => {
                 setBookmarkedTopics={setBookmarkedTopics}
               />
             }
+          />
+          <Route
+            path='/exercises'
+            element={<Exercises />}
+          />
+          <Route
+            path='/about'
+            element={<About />}
           />
           <Route
             path='/error'

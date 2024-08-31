@@ -62,6 +62,7 @@ const Bookmarks = ({ bookmarkedTopics, setBookmarkedTopics }: Props) => {
                     .slice(bookmark.link.indexOf('/', 1))
                     .replaceAll('-', ' ')}
                 </span>
+                {/* create tag for bookmarked topic */}
                 <Link
                   to={`/${bookmark.link
                     .replace('/', '')
