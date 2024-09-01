@@ -113,7 +113,14 @@ export const topics = {
     'parametric-constraints',
     'wrapping-up',
   ],
-  extras: ['custom-package', 'remote-package', 'clean-package', 'proverbs'],
+  extras: [
+    'user-input',
+    'standard-library',
+    'custom-package',
+    'remote-package',
+    'clean-package',
+    'proverbs',
+  ],
 };
 
 export const categories = [

@@ -35,8 +35,8 @@ const ExercisePage = () => {
       <h1 className='my-10'>{difficulty} Exercises</h1>
       <p className='mb-10'>{exercise.message}</p>
       <ol className='list-decimal list-inside space-y-6'>
-        {exercise.exercises.map((levelExercise) => (
-          <li>{levelExercise}</li>
+        {exercise.exercises.map((levelExercise, idx) => (
+          <li key={idx}>{levelExercise}</li>
         ))}
       </ol>
     </div>

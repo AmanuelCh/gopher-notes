@@ -3,18 +3,22 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { cn } from '../../utils/cn';
+import { useKey } from '../../hooks/useKey';
 
 export function PlaceholdersAndVanishInput({
+  searchTerm,
   placeholders,
   onChange,
   onSubmit,
 }: {
+  searchTerm?: string;
   placeholders: string[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }) {
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 
+  // @ts-expect-error
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const startAnimation = () => {
     intervalRef.current = setInterval(() => {
@@ -174,11 +178,22 @@ export function PlaceholdersAndVanishInput({
     vanishAndSubmit();
     onSubmit && onSubmit(e);
   };
+
+  useEffect(() => {
+    if (!searchTerm) {
+      setValue('');
+    }
+  }, [searchTerm]);
+
+  useKey('slash', () => {
+    inputRef.current!.focus();
+  });
+
   return (
     <form
       className={cn(
-        'w-full relative max-w-xl mx-auto bg-white dark:bg-zinc-800 h-12 rounded-full overflow-hidden shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),_0px_1px_0px_0px_rgba(25,28,33,0.02),_0px_0px_0px_1px_rgba(25,28,33,0.08)] transition duration-200',
-        value && 'bg-gray-50'
+        'w-full relative max-w-xl mx-auto bg-slate-200 dark:bg-zinc-800 h-12 rounded-full overflow-hidden drop-shadow-md transition duration-200',
+        value && 'bg-gray-300'
       )}
       onSubmit={handleSubmit}
     >

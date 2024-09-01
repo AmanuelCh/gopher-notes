@@ -22,10 +22,11 @@ const Exercises = (props: Props) => {
       <h1 className='my-10'>Exercises</h1>
 
       <div className='grid md:grid-cols-2 gap-6'>
-        {exercises.map((exercise) => (
+        {exercises.map((exercise, idx) => (
           <Link
             to={exercise.difficulty.toLowerCase()}
             className='card'
+            key={idx}
           >
             {exercise.difficulty}
           </Link>

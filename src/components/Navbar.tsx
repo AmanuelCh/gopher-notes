@@ -56,8 +56,16 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
     setSearchIndex(0);
   };
   // handle input submit
-  const onLinkClick = (e: FormEvent) => {
+  const onInputSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    // don't show search results box if there's no search result
+    if (!searchResults.length) {
+      setSearchTerm('');
+      setSearchIndex(0);
+      setMaximumSearchResult(8);
+      return;
+    }
 
     // navigate to the first search result
     navigate(
@@ -106,10 +114,6 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
     if (searchTerm) setSearchIndex(searchIndex - 1);
   });
 
-  // document.addEventListener('keydown', (e) => {
-  //   console.log(e.code.toLowerCase());
-  // });
-
   return (
     <div className='container mx-auto px-4 py-1 relative'>
       <div className='flex flex-col justify-between mt-6 gap-12 md:flex-row md:items-center md:gap-24 dark:text-neutral-300'>
@@ -146,9 +150,10 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
         </div>
         <div className='w-full relative'>
           <PlaceholdersAndVanishInput
+            searchTerm={searchTerm}
             placeholders={placeholders}
             onChange={handleChange}
-            onSubmit={onLinkClick}
+            onSubmit={onInputSubmit}
           />
           {searchTerm ? (
             <div
@@ -164,7 +169,7 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
                         className={`${
                           searchIndex === idx ? 'text-blue-400' : ''
                         }`}
-                        onClick={(e: FormEvent) => onLinkClick(e)}
+                        onClick={(e: FormEvent) => onInputSubmit(e)}
                         key={idx}
                       >
                         <Link

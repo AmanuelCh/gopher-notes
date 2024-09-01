@@ -32,8 +32,10 @@ alice := Person{
 
 Now you have a `Person` instance called `alice`. You can access its fields using the dot (.) operator:
 
+```go
 fmt.Println(alice.Name) // Output: "Alice"
 fmt.Println(alice.Age)   // Output: 30
+```
 
 ### Nested Structs: Organizing Complex Data
 

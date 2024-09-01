@@ -74,6 +74,7 @@ code {
 
 .links {
   text-decoration: underline;
+  color: rgb(147 197 253);
 }
 .markdown-file ul,
 .markdown-file ol {
