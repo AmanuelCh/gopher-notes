@@ -152,7 +152,7 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
           />
           {searchTerm ? (
             <div
-              className='text-white absolute left-1/2 -translate-x-1/2 mt-3 py-5 px-8 tracking-wide leading-loose w-11/12 lg:w-[70%] rounded-md z-40 bg-zinc-800'
+              className='text-white absolute left-1/2 -translate-x-1/2 mt-3 py-5 px-8 tracking-wide leading-loose w-11/12 rounded-md z-40 bg-zinc-800'
               // @ts-expect-error
               ref={searchRef}
             >
@@ -168,11 +168,12 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
                         key={idx}
                       >
                         <Link
+                          className='font-mono'
                           to={`/${result.category.replaceAll('_', '-')}/${
                             result.topic
                           }`}
                         >
-                          <span>{result.category.replaceAll('_', '-')}</span>/
+                          <span>{result.category.replaceAll('_', ' ')}</span> /{' '}
                           <span>{result.topic.replaceAll('-', ' ')}</span>
                         </Link>
                       </li>
@@ -197,22 +198,22 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
           <div>
             {' '}
             <Link
-              className='flex items-center gap-2'
+              className='flex items-center gap-2 group'
               to='/exercises'
             >
               <span className=''>Exercises</span>{' '}
-              <span className='text-sm'>📚</span>
+              <span className='text-sm group-hover:animate-spin'>📚</span>
             </Link>
           </div>
           <div>
             {' '}
             <Link
-              className='flex items-center gap-2'
+              className='flex items-center gap-2 group'
               to='/about'
             >
               <span className=''>About</span>{' '}
-              <span className='text-sm'>
-                <User className='w-5' />
+              <span className='text-sm mt-[1px] group-hover:animate-spin'>
+                💡
               </span>
             </Link>
           </div>

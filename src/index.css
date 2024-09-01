@@ -26,7 +26,7 @@
     @apply w-[25px] h-[25px] rounded-[50px] flex items-center justify-center overflow-hidden z-20 duration-300;
   }
   .card {
-    @apply rounded-2xl p-4 dark:bg-slate-950 border border-transparent dark:border-white/[0.2] border-slate-700 relative z-20 capitalize;
+    @apply rounded-2xl p-4 dark:bg-slate-950 border border-transparent dark:border-white/[0.2] border-slate-700 relative z-20 capitalize hover:animate-pulse;
   }
   .btn {
     @apply flex overflow-hidden items-center text-sm font-medium  bg-slate-800 text-white shadow px-4 py-3 whitespace-pre md:flex relative w-max justify-center gap-2 rounded-md transition-all duration-300 ease-out cursor-pointer hover:bg-slate-700;
