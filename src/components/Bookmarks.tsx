@@ -26,7 +26,7 @@ const Bookmarks = ({ bookmarkedTopics, setBookmarkedTopics }: Props) => {
   };
 
   return (
-    <div className='container mx-auto py-1 leading-relaxed pb-12 dark:text-neutral-300 max-w-3xl mt-12 w-11/12'>
+    <div className='wrapper'>
       <SEO
         title='Bookmarks | Gopher notes'
         description='View your bookmarks | Gopher notes'

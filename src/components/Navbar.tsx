@@ -178,7 +178,7 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
                       </li>
                     ))}
                   </ul>
-                  {searchResults.length > 9 ? (
+                  {searchResults.length > 7 ? (
                     <button
                       className='mt-2 text-blue-400 underline'
                       onClick={handleShowMore}
@@ -193,7 +193,30 @@ const Navbar = ({ isDark, handleDarkToggle }: Props) => {
             </div>
           ) : null}
         </div>
-        <div className='gap-8 hidden md:flex'>
+        <div className='gap-8 hidden md:flex items-center'>
+          <div>
+            {' '}
+            <Link
+              className='flex items-center gap-2'
+              to='/exercises'
+            >
+              <span className=''>Exercises</span>{' '}
+              <span className='text-sm'>📚</span>
+            </Link>
+          </div>
+          <div>
+            {' '}
+            <Link
+              className='flex items-center gap-2'
+              to='/about'
+            >
+              <span className=''>About</span>{' '}
+              <span className='text-sm'>
+                <User className='w-5' />
+              </span>
+            </Link>
+          </div>
+
           <div>
             <Link
               className='bookmarkBtn'

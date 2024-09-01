@@ -225,7 +225,7 @@ export const exercises = [
       'Write a web scraper that retrieves data from a website using the `net/http` package. Use goroutines to parallelize the scraping process and improve performance.',
     ],
     message:
-      'These are small programs that solve real problems to solidify your skills. Feel free to extend on them and add features. ',
+      'These are intermediate and small programs that solve real problems to solidify your skills. Feel free to extend on them and add features. ',
   },
   {
     difficulty: 'Advanced',

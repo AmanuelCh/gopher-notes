@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { categories } from './lists';
 import { useNavigate, useParams } from 'react-router-dom';
 
-function checkRoute() {
+function checkRoute(exercises?: string[]) {
   const { category } = useParams();
   const navigate = useNavigate();
 
@@ -23,7 +23,19 @@ function checkRoute() {
 
       return;
     }
-  }, [category, navigate]);
+
+    // if single exercise page isn't one of the three type, navigate to error page
+    if (
+      !exercises?.some(
+        (exercise) =>
+          exercise === 'beginner' ||
+          exercise === 'intermediate' ||
+          exercise === 'advanced'
+      )
+    ) {
+      navigate('/error');
+    }
+  }, [category, exercises, navigate]);
 }
 
 export default checkRoute;

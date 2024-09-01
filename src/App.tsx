@@ -7,11 +7,12 @@ import MarkdownViewer from './components/MarkdownViewer';
 import Navbar from './components/Navbar';
 import Bookmarks from './components/Bookmarks';
 import Exercises from './components/Exercises';
+import ExercisePage from './components/ExercisePage';
 import About from './components/About';
 import Error from './components/Error';
 
 const App = () => {
-  const [isDark, setIsDark] = useLocalStorage('isDark', false);
+  const [isDark, setIsDark] = useLocalStorage('isDark', true);
   const [bookmarkedTopics, setBookmarkedTopics] = useLocalStorage<
     { link: string }[]
   >('bookmarkedTopics', []);
@@ -31,7 +32,7 @@ const App = () => {
       )}
       <SEO
         title='Gopher Notes'
-        description='Gopher Notes: Learn, Code, and Build with Confidence'
+        description='Gopher Notes: Learn, Code, and Build with Confidence. Gopher notes provide Go programming language notes and exercises.'
         name='Amanuel Chaka'
         type='article'
       />
@@ -71,6 +72,10 @@ const App = () => {
           <Route
             path='/exercises'
             element={<Exercises />}
+          />
+          <Route
+            path='/exercises/:difficulty'
+            element={<ExercisePage />}
           />
           <Route
             path='/about'
