@@ -31,6 +31,11 @@ export default function SEO({ title, description, name, type }: Props) {
         content={description}
       />
 
+      <meta
+        property='og:image'
+        content='/go-meta.png'
+      />
+
       {/* Twitter tags */}
       <meta
         name='twitter:creator'
@@ -47,6 +52,10 @@ export default function SEO({ title, description, name, type }: Props) {
       <meta
         name='twitter:description'
         content={description}
+      />
+      <meta
+        name='twitter:image'
+        content='/go-meta.png'
       />
     </Helmet>
   );
