@@ -113,7 +113,7 @@ export const topics = {
     'parametric-constraints',
     'wrapping-up',
   ],
-  go_facts: ['proverbs'],
+  extras: ['custom-package', 'remote-package', 'clean-package', 'proverbs'],
 };
 
 export const categories = [
@@ -184,14 +184,14 @@ export const categories = [
   },
   {
     title: 'Mutexes and Generics',
-    description: ' Protect shared data from race conditions.',
+    description: 'Protect shared data from race conditions.',
     link: '/mutexes-and-generics',
   },
   {
-    title: 'Go Facts',
+    title: 'Extras',
     description:
-      'Go proverbs from creators of Go language and additional concepts',
-    link: '/go-facts',
+      'Additional Go concepts and Go proverbs from creator of Go language.',
+    link: '/extras',
   },
 ];
 
