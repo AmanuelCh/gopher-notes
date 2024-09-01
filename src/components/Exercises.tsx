@@ -3,9 +3,7 @@ import SEO from './SEO';
 import Breadcrumb from './ui/breadcrumb';
 import { exercises } from '../utils/lists';
 
-type Props = {};
-
-const Exercises = (props: Props) => {
+const Exercises = () => {
   return (
     <div className='wrapper'>
       <SEO

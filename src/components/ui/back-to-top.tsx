@@ -1,15 +1,16 @@
-type Props = {};
-
-const BackToTop = (props: Props) => {
+const BackToTop = () => {
   const handleScroll = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
-  }
+  };
 
   return (
-    <button className='back-btn w-[50px] h-[50px] bg-slate-700 font-semibold flex items-center justify-center shadow-[0px_0px_0px_4px_rgba(180,160,255,0.253)] cursor-pointer duration-[0.3s] overflow-hidden relative rounded-[50%] border-[none] hover:w-[140px] hover:duration-[0.3s] hover:bg-[rgb(181,160,255)] hover:items-center hover:rounded-[50px] before:absolute before:content-["Back_to_Top"] before:text-[white] before:text-[0px] before:-bottom-5 hover:before:text-[13px] hover:before:opacity-100 hover:before:duration-[0.3s] hover:before:bottom-[unset] group' onClick={handleScroll}>
+    <button
+      className='back-btn w-[50px] h-[50px] bg-slate-700 font-semibold flex items-center justify-center shadow-[0px_0px_0px_4px_rgba(180,160,255,0.253)] cursor-pointer duration-[0.3s] overflow-hidden relative rounded-[50%] border-[none] hover:w-[140px] hover:duration-[0.3s] hover:bg-[rgb(181,160,255)] hover:items-center hover:rounded-[50px] before:absolute before:content-["Back_to_Top"] before:text-[white] before:text-[0px] before:-bottom-5 hover:before:text-[13px] hover:before:opacity-100 hover:before:duration-[0.3s] hover:before:bottom-[unset] group'
+      onClick={handleScroll}
+    >
       <svg
         className='w-[12px] duration-300 group-hover:duration-300 group-hover:translate-y-[-200%] animate-pulse'
         viewBox='0 0 384 512'

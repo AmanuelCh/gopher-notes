@@ -1,3 +1,4 @@
+// @ts-expect-error
 const CustomLink = ({ className, ...props }) => {
   return (
     // adds custom "links" class for all links rendered in "MarkdownViewer" component

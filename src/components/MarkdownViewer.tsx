@@ -123,10 +123,12 @@ const MarkdownViewer = ({ bookmarkedTopics, setBookmarkedTopics }: Props) => {
           <ReactMarkdown
             remarkPlugins={[[remarkGfm]]}
             components={{
+              // @ts-expect-error
               code({ node, inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || '');
                 return !inline && match ? (
                   <SyntaxHighlighter
+                    // @ts-expect-error
                     style={dracula}
                     language={match[1]}
                     PreTag='div'
@@ -143,6 +145,7 @@ const MarkdownViewer = ({ bookmarkedTopics, setBookmarkedTopics }: Props) => {
                   </code>
                 );
               },
+              // @ts-expect-error
               a: CustomLink,
             }}
           >
