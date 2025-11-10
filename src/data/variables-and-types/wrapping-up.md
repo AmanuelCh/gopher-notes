@@ -55,6 +55,34 @@ if age >= 18 {
 }
 ```
 
+### Switch Statements: Cleaner Multiple Conditions
+
+When you need to check multiple conditions, `switch` statements provide a cleaner alternative to long `if-else` chains. Go's switch statements automatically break after each case and can work with any type:
+
+```go
+switch day {
+case "Saturday", "Sunday":
+    fmt.Println("It's the weekend!")
+case "Monday":
+    fmt.Println("Back to work!")
+default:
+    fmt.Println("It's a regular weekday")
+}
+```
+
+You can even use switch without a condition to create readable conditional logic:
+
+```go
+switch {
+case score >= 90:
+    fmt.Println("Grade: A")
+case score >= 80:
+    fmt.Println("Grade: B")
+default:
+    fmt.Println("Keep studying!")
+}
+```
+
 ### Formatting Strings: Making Your Output Elegant
 
 Go provides a powerful formatting mechanism for strings:
